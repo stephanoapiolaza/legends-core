@@ -2,6 +2,7 @@
   "name": "mfe-landing-azlo",
   "version": "1.0.0",
   "private": true,
+  "homepage":"https://stephanoapiolaza.github.io/legends-cores",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
@@ -25,8 +26,8 @@
   "scripts": {
     "start": "env-cmd -f .env.local react-scripts start",
     "remove": "npx serverless remove --stage=production",
-    "deploy": "npm run build:master && npx serverless deploy --stage=production",
-    "deploy:develop": "npm run build:develop && npx serverless deploy --stage=development",
+    "deploy-aws": "npm run build:master && npx serverless deploy --stage=production",
+    "deploy-aws:develop": "npm run build:develop && npx serverless deploy --stage=development",
     "build": "NODE_OPTIONS='--max_old_space_size=4096' DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "build:develop": "env-cmd -f .env.development npm run build",
     "build:release": "env-cmd -f .env.qa npm run build",
@@ -36,7 +37,9 @@
     "eject": "react-scripts eject",
     "mock": "prism mock mock/api.yaml",
     "check-types": "tsc --noEmit --pretty",
-    "semantic-release": "npx semantic-release --no-ci"
+    "semantic-release": "npx semantic-release --no-ci",
+    "predeploy": "npm run build:master",
+    "deploy": "gh pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -71,6 +74,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "env-cmd": "^10.1.0",
+    "gh-pages": "^6.1.1",
     "husky": "^8.0.3",
     "prettier": "^2.8.4",
     "sass": "^1.58.3",
