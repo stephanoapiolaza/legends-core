@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/legends-cores/static/css/main.73acce74.css",
-    "main.js": "/legends-cores/static/js/main.0fd7062b.js",
-    "static/js/787.437368e3.chunk.js": "/legends-cores/static/js/787.437368e3.chunk.js",
-    "static/media/moba-map.png": "/legends-cores/static/media/moba-map.bb2db7fe8083a9e20797.png",
-    "static/media/players-avatar.png": "/legends-cores/static/media/players-avatar.f09d2b41e81f02615366.png",
-    "static/media/kratos.png": "/legends-cores/static/media/kratos.0b95ada466adbe8d2020.png",
-    "static/media/character.png": "/legends-cores/static/media/character.24e781f474627be2a3b8.png",
-    "static/media/lol.png": "/legends-cores/static/media/lol.ce96c85f07cd2f5251e2.png",
-    "static/media/ranking-alconte.png": "/legends-cores/static/media/ranking-alconte.5a09d075114749e99d53.png",
-    "static/media/marketing.png": "/legends-cores/static/media/marketing.a0200fc0ea6b271cb908.png",
-    "static/media/sniper.png": "/legends-cores/static/media/sniper.9e8c759197f6088f5bea.png",
-    "static/media/juggernaut.png": "/legends-cores/static/media/juggernaut.23a2aa5a21fdb3cefa1f.png",
-    "static/media/phantom-assassin.png": "/legends-cores/static/media/phantom-assassin.7482dd261fde9f4aab16.png",
-    "static/media/profile.png": "/legends-cores/static/media/profile.69bb8da9fa25f035b1fb.png",
-    "index.html": "/legends-cores/index.html",
-    "main.73acce74.css.map": "/legends-cores/static/css/main.73acce74.css.map",
-    "main.0fd7062b.js.map": "/legends-cores/static/js/main.0fd7062b.js.map",
-    "787.437368e3.chunk.js.map": "/legends-cores/static/js/787.437368e3.chunk.js.map"
+    "main.css": "/legends-core/static/css/main.bc8f9d7b.css",
+    "main.js": "/legends-core/static/js/main.ea2ba0d1.js",
+    "static/js/787.437368e3.chunk.js": "/legends-core/static/js/787.437368e3.chunk.js",
+    "static/media/moba-map.png": "/legends-core/static/media/moba-map.bb2db7fe8083a9e20797.png",
+    "static/media/players-avatar.png": "/legends-core/static/media/players-avatar.f09d2b41e81f02615366.png",
+    "static/media/kratos.png": "/legends-core/static/media/kratos.0b95ada466adbe8d2020.png",
+    "static/media/character.png": "/legends-core/static/media/character.24e781f474627be2a3b8.png",
+    "static/media/lol.png": "/legends-core/static/media/lol.ce96c85f07cd2f5251e2.png",
+    "static/media/ranking-alconte.png": "/legends-core/static/media/ranking-alconte.5a09d075114749e99d53.png",
+    "static/media/marketing.png": "/legends-core/static/media/marketing.a0200fc0ea6b271cb908.png",
+    "static/media/sniper.png": "/legends-core/static/media/sniper.9e8c759197f6088f5bea.png",
+    "static/media/juggernaut.png": "/legends-core/static/media/juggernaut.23a2aa5a21fdb3cefa1f.png",
+    "static/media/phantom-assassin.png": "/legends-core/static/media/phantom-assassin.7482dd261fde9f4aab16.png",
+    "static/media/profile.png": "/legends-core/static/media/profile.69bb8da9fa25f035b1fb.png",
+    "index.html": "/legends-core/index.html",
+    "main.bc8f9d7b.css.map": "/legends-core/static/css/main.bc8f9d7b.css.map",
+    "main.ea2ba0d1.js.map": "/legends-core/static/js/main.ea2ba0d1.js.map",
+    "787.437368e3.chunk.js.map": "/legends-core/static/js/787.437368e3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.73acce74.css",
-    "static/js/main.0fd7062b.js"
+    "static/css/main.bc8f9d7b.css",
+    "static/js/main.ea2ba0d1.js"
   ]
 }
