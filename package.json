@@ -2,7 +2,7 @@
   "name": "mfe-landing-azlo",
   "version": "1.0.0",
   "private": true,
-  "homepage":"https://stephanoapiolaza.github.io/legends-cores",
+  "homepage":"https://stephanoapiolaza.github.io/legends-core",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
@@ -39,7 +39,7 @@
     "check-types": "tsc --noEmit --pretty",
     "semantic-release": "npx semantic-release --no-ci",
     "predeploy": "npm run build:master",
-    "deploy": "gh pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
