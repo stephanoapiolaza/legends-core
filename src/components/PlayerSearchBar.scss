@@ -1,0 +1,17 @@
+$gray: #BABABA;
+
+/* Cambiar color del placeholder */
+.text-gray::placeholder {
+    color: $gray;  /* Aquí defines el color que quieras */
+    opacity: 1;      /* Asegúrate de que la opacidad esté al 100% */
+}
+
+/* También puedes añadir estilos al input cuando tenga el focus */
+.text-gray:focus::placeholder {
+  color: $gray;  /* Cambiar color cuando el input esté enfocado */
+}
+
+.search-bar {
+  max-width: 473px;
+  max-height: 50px;
+}

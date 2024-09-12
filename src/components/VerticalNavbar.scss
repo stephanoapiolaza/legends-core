@@ -1,0 +1,32 @@
+/* Contenedor del Navbar */
+.navbar-container {
+    width: 80px;  /* Ancho de la barra lateral */
+    background-color: #1d4f46;  /* Color de fondo */
+    height: 90vh;  /* Altura completa de la pantalla */
+    border-radius: 30px;  /* Bordes redondeados */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    bottom: 5% !important;
+  }
+  
+  /* Estilos de cada icono */
+  .icon-item {
+    color: #ffffff;  /* Color blanco de los iconos */
+    font-size: 1.5rem;  /* Tamaño de los iconos */
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Estilos para cuando un icono es activo */
+  .icon-item.active {
+    background-color: #4cb0a9;  /* Fondo iluminado para el icono activo */
+    padding: 15px;
+    border-radius: 50%;  /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  /* Sombra para el efecto */
+  }
+  
+  /* Cambios en hover */
+  .icon-item:hover {
+    transform: scale(1.1);  /* Aumenta el tamaño al pasar el mouse */
+  }
+  

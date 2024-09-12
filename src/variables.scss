@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,300,700");
+
+// 2. Include any default variable overrides here
+$primary:       #00453F !default;
+$secondary:     #03B397 !default;
+$success:       #3DBDA7 !default;
+$info:          #007AFF !default;
+$warning:       #F8EFDD !default;
+$danger:        #A32223 !default;
+$light:         #FFFFFF !default;
+$dark:          #00453F !default;
+$link-color:    $secondary !default;
+$gray:          #BABABA;
+$font-family-sans-serif: 'Poppins', sans-serif !default;
+$font-family-serif:      'Poppins' serif !default;
+$font-family-monospace:  'Poppins', monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
+
+p {
+    font-family: $font-family-base;
+}

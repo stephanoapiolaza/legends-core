@@ -1,0 +1,86 @@
+[
+  {
+    "_id": "10",
+    "key": "ABCD10",
+    "title": "¿Cuáles son las principales fases del ciclo de vida de DevOps?",
+    "active": true,
+    "category": "java",
+    "level": "basic",
+    "created_at": "2023-03-10T15:38:02Z",
+    "update_at": "2023-03-10T15:38:02Z",
+    "answers": [
+      {
+        "title": "Planificación, codificación, construcción, lanzamiento, prueba y implementación.",
+        "is_correct": false
+      },
+      {
+        "title": "Planificación, construcción, lanzamiento, prueba y implementación.",
+        "is_correct": false
+      },
+      {
+        "title": "Planificación, codificación, construcción, prueba, lanzamiento, implementación y monitoreo.",
+        "is_correct": true
+      },
+      {
+        "title": "Planificación, codificación, construcción, lanzamiento, prueba, implementación y monitoreo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "_id": "11",
+    "key": "ABCD11",
+    "title": "¿Que es programacion orientada a aspectos?",
+    "active": true,
+    "category": "java",
+    "level": "middle",
+    "created_at": "2023-03-10T15:38:02Z",
+    "update_at": "2023-03-10T15:38:02Z",
+    "answers": [
+      {
+        "title": "Es un paradigma para modificar lo que hace antes, durante y despues de la ejecucion de un metodo",
+        "is_correct": true
+      },
+      {
+        "title": "Permite modificar dinamicamente la ejecucion de un metodo",
+        "is_correct": false
+      },
+      {
+        "title": "Permite trabajar con herencia múltiple",
+        "is_correct": false
+      },
+      {
+        "title": "Paradigma para aumentar el rendimiento de las aplicaciones",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "_id": "12",
+    "key": "ABCD12",
+    "title": "¿Cuales son los eventos de la metodologia scrum (seleccion multiple)?",
+    "active": true,
+    "category": "scrum",
+    "level": "middle",
+    "created_at": "2023-03-10T15:38:02Z",
+    "update_at": "2023-03-10T15:38:02Z",
+    "answers": [
+      {
+        "title": "Daily",
+        "is_correct": true
+      },
+      {
+        "title": "Retrospective",
+        "is_correct": true
+      },
+      {
+        "title": "Planning",
+        "is_correct": true
+      },
+      {
+        "title": "Sprint Review",
+        "is_correct": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,821 @@
+openapi: '3.0.0'
+info:
+  description: Allow to centralize information of an enterprise
+  version: 1.0.0
+  title: Azlo API
+  termsOfService: about:blank
+  contact:
+    name: Azlo
+    url: 'https://azlo.cl'
+    email: ya@azlo.cl
+  license:
+    name: ISC
+servers:
+  - url: https://localhost:8080/api/v1
+    description: Context Url
+paths:
+  '/oauth/{provider}':
+    get:
+      tags:
+        - SecurityManager
+      summary: Login at google provider to give access to the platform
+      description: give access to the platform
+      operationId: goTofederationAuth
+      parameters:
+        - name: provider
+          in: path
+          description: It can be google, outlook, linkedin
+          required: true
+          schema:
+            type: string
+            example: "google"
+      responses:
+        '302':
+          description: Redirect to provider login
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+  '/oauth/{provider}/callback':
+    get:
+      tags:
+        - SecurityManager
+      summary: Allow to get user personal information
+      description: give access to the platform
+      operationId: getAuthenticationCallback
+      parameters:
+        - name: provider
+          in: path
+          description: It can be google, outlook, linkedin
+          required: true
+          schema:
+            type: string
+            example: "google"
+      security:
+        - BearerAuth: [ ]
+      responses:
+        '302':
+          description: Redirect to client login
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+  '/oauth/login':
+    get:
+      tags:
+        - SecurityManager
+      summary: Allow to get user personal information
+      description: give access to the platform
+      operationId: login
+      security:
+        - BearerAuth: [ ]
+      responses:
+        '200':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityAccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+  '/profiles':
+    get:
+      tags:
+        - TestManager
+      summary: Allow to get profiles saved in the system
+      description: Get resume information about profiles
+      operationId: getProfiles
+      security:
+        - BearerAuth: [ ]
+      responses:
+        '200':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileEnvelope'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+    post:
+      tags:
+        - TestManager
+      summary: Allow to save profile in the system
+      description: Save information about a profile
+      operationId: saveProfile
+      security:
+        - BearerAuth: [ ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Profile'
+      responses:
+        '201':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+  '/questions':
+    get:
+      tags:
+        - TestManager
+      summary: Allow to get questions saved in the system
+      description: Get resume information about questions
+      operationId: getQuestions
+      security:
+        - BearerAuth: [ ]
+      responses:
+        '200':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuestionEnvelope'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+    post:
+      tags:
+        - TestManager
+      summary: Allow to save questions in the system
+      description: Save information about a questions
+      operationId: saveQuestion
+      security:
+        - BearerAuth: [ ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+      responses:
+        '201':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+  '/tests':
+    get:
+      tags:
+        - TestManager
+      summary: Allow to get test saved in the system
+      description: Get resume information about test
+      operationId: getTest
+      security:
+        - BearerAuth: [ ]
+      responses:
+        '200':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestEnvelope'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+    post:
+      tags:
+        - TestManager
+      summary: Allow to save test in the system
+      description: Save information about a test
+      operationId: saveTest
+      security:
+        - BearerAuth: [ ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Test'
+      responses:
+        '201':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+  '/tests/{key}':
+    get:
+      tags:
+        - TestManager
+      summary: Allow to get test by candidate
+      description: Get information about a test
+      operationId: getTestByKey
+      security:
+        - BearerAuth: [ ]
+      parameters:
+        - name: key
+          in: path
+          description: The unique identifier of the test
+          required: true
+          schema:
+            type: string
+            example: "SBSSAS21212"
+      responses:
+        '200':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+    delete:
+      tags:
+        - TestManager
+      summary: Allow to remove an test of the hiring process
+      description: delete an test and allow to make a new hiring process for the candidate
+      operationId: deleteTestByKey
+      security:
+        - BearerAuth: [ ]
+      parameters:
+        - name: key
+          in: path
+          description: The unique identifier of the test
+          required: true
+          schema:
+            type: string
+            example: "SBSSAS21212"
+      responses:
+        '202':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+  '/tests/{key}/start':
+    put:
+      tags:
+        - TestManager
+      summary: Allow to update a status test in the system
+      description: Update information about a test
+      operationId: startTest
+      security:
+        - BearerAuth: [ ]
+      parameters:
+        - name: key
+          in: path
+          description: The unique identifier of the test
+          required: true
+          schema:
+            type: string
+            example: "SBSSAS21212"
+      responses:
+        '202':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+  '/tests/{key}/submit':
+    put:
+      tags:
+        - TestManager
+      summary: Allow to submit a status test in the system
+      description: Update information about a test
+      operationId: submitTest
+      security:
+        - BearerAuth: [ ]
+      parameters:
+        - name: key
+          in: path
+          description: The unique identifier of the test
+          required: true
+          schema:
+            type: string
+            example: "SBSSAS21212"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Test'
+      responses:
+        '202':
+          description: Retrieve the resource requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          $ref: '#/components/responses/InternalServer'
+components:
+  schemas:
+    SecurityAccess:
+      type: object
+      description: Return security access for into the system
+      properties:
+        access_token:
+          description: JWT Token RFC 7519
+          type: string
+          example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTguMzc5Ljg1MS0wIiwic2NvcGVzIj.BABS2'
+        user:
+          $ref: '#/components/schemas/User'
+    ProfileEnvelope:
+      type: object
+      description: Information about assessments
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Profile'
+    TestEnvelope:
+      type: object
+      description: Information about assessments
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Test'
+    QuestionEnvelope:
+      type: object
+      description: Information about assessments
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+    Test:
+      type: object
+      description: Information about test
+      properties:
+        id:
+          description: The unique identifier
+          type: string
+          example: '345643'
+        key:
+          description: The unique identifier
+          type: string
+          example: '93231'
+        name:
+          description: Name of the test
+          type: string
+          example: 'Devops Scotiabank'
+        description:
+          description: description of the test
+          type: string
+          example: 'Prueba creada para el proceso de candidato de scotiabank'
+        active:
+          type: boolean
+          description: active flag
+          example: true
+        account:
+          description: description of the account
+          type: string
+          example: 'Scotiabank'
+        status:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusTest'
+        submit:
+          $ref: '#/components/schemas/Submit'
+        timing:
+          description: only time format based on format 8601 HH:MM:SS
+          type: string
+          example: "02:00:00"
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+        evaluated:
+          $ref: '#/components/schemas/User'
+        created_at:
+          description: Date when the process started in format 8601
+          type: string
+          example: "2022-02-02"
+        updated_at:
+          description: Date when the process started in format 8601
+          type: string
+          example: "2022-02-02"
+    StatusTest:
+      type: object
+      description: information about test
+      properties:
+        name:
+          description: Status value allowed are START, IN_PROGRESS, DONE
+          type: string
+          example: 'START'
+        last_record:
+          description: allow to know if the last status assigned
+          type: boolean
+        updated_at:
+          description: Date when the process started in format 8601
+          type: string
+          example: "2022-02-02"
+    Submit:
+      type: object
+      description: Information about test
+      properties:
+        sent_at:
+          description: Date when the process was submit in format 8601
+          type: string
+          example: "2022-02-02"
+        time_completed:
+          description: only time format based on format 8601 HH:MM:SS
+          type: string
+          example: "02:00:00"
+        questions_answered:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+    Category:
+      type: object
+      description: Skill to tag question with score by question
+      properties:
+        level:
+          description: It can be BASIC, MIDDLE, SENIOR
+          type: string
+          example: 'BASIC'
+        min_question_to_resolve:
+          description: Count of questions to approbe this category
+          type: number
+          example: 5
+        quantity_questions:
+          description: Total of question to test
+          type: number
+          example: 7
+        name:
+          description: category name
+          type: string
+          example: 'java'
+        is_approved:
+          description: used to know if the candidate approbed this category
+          type: boolean
+          example: false
+    Question:
+      type: object
+      description: Information about question
+      properties:
+        id:
+          description: The unique identifier
+          type: string
+          example: '345643'
+        key:
+          description: The unique key for the question
+          type: string
+          example: '1035439644'
+        title:
+          description: title´s question
+          type: string
+          example: '¿Cuáles son las principales fases del ciclo de vida de DevOps?'
+        active:
+          type: boolean
+          description: active flag
+          example: true
+        category:
+          type: string
+          description: Skill to tag question
+          example: "java"
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Answer'
+        level:
+          type: string
+          description: level can be basic, middle or advanced
+          example: "basic"
+        created_by:
+          $ref: '#/components/schemas/User'
+        created_at:
+          description: Date when the process started in format 8601
+          type: string
+          example: "2022-02-02"
+        updated_at:
+          description: Date when the process started in format 8601
+          type: string
+          example: "2022-02-02"
+    UserEnvelope:
+      type: object
+      description: Information about users
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    User:
+      type: object
+      description: Information about user
+      properties:
+        id:
+          description: The unique identifier
+          type: string
+          example: '345643'
+        names:
+          description: Name of the user
+          type: string
+          example: 'Juan'
+        lastnames:
+          description: Lastnames of the user
+          type: string
+          example: 'Perez'
+        active:
+          type: boolean
+          description: active flag
+          example: true
+        email:
+          type: string
+          example: "stephano.apiolaza@gmail.com"
+        picture:
+          type: string
+          description: base64 with the user picture
+          example: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyGNr2qL63Sfugk2Z1-KBEwMGOfycBribew&usqp=CAU"
+    Answer:
+      type: object
+      description: Information about profile
+      properties:
+        title:
+          description: title´s description
+          type: string
+          example: 'Planificación, codificación, construcción, lanzamiento, prueba y implementación.'
+        is_correct:
+          description: allow to know the answer is correct
+          type: boolean
+          example: true
+    Profile:
+      type: object
+      description: Information about profile
+      properties:
+        id:
+          description: The unique identifier
+          type: string
+          example: '345643'
+        key:
+          description: The unique identifier
+          type: string
+          example: '93231'
+        name:
+          description: Name of the profile
+          type: string
+          example: 'Full Stack Scotiabank'
+        description:
+          description: description of the profile
+          type: string
+          example: 'Creado para el Q2 Scotiabank'
+        account:
+          description: account of the company
+          type: string
+          example: 'Liberty Seguros'
+        active:
+          type: boolean
+          description: active flag
+          example: true
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+        created_by:
+          $ref: '#/components/schemas/User'
+        created_at:
+          description: Date when the process started in format 8601
+          type: string
+          example: "2022-02-02"
+        updated_at:
+          description: Date when the process started in format 8601
+          type: string
+          example: "2022-02-02"
+    Notification:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Something is invalid
+          description: Description of the error or information notification. Where the response is 2xx, it's a notification with informational details about this response.
+        timestamp:
+          type: string
+          format: date-time
+          example: 2020-05-06T11:38:48.103Z
+          description: 'Notification code. The first character indicates the day and time the request was made.'
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+          description: Context specific to this area. May not be provided.
+    EmptyData:
+      type: object
+      properties:
+        data:
+          type: string
+          example: null
+        notifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    BadRequest:
+      description: Indicates that the server could not understand the request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmptyData'
+    Unauthorized:
+      description: This will be returned when no authentication information is provided
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmptyData'
+    Forbidden:
+      description: The principal associated with the request does not have sufficient rights to perform this operation on the requested resource
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmptyData'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmptyData'
+    Conflict:
+      description: The specified resource had a problem
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmptyData'
+    Unprocessable:
+      description: The request was syntactically correct but was not semantically correct. Usually indicating a validation problem
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmptyData'
+    InternalServer:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmptyData'

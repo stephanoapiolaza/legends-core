@@ -1,0 +1,62 @@
+/* Contenedor general */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;  /* Fondo oscuro para mayor contraste */
+  }
+  
+  /* Estilos del botón */
+  .btn-lol {
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Imagen dentro del botón */
+  .lol-logo {
+    width: 150px;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Texto debajo de la imagen */
+  .btn-lol p {
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Brillo en hover */
+  .btn-lol:hover .lol-logo {
+    box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);  /* Agranda ligeramente el logo */
+  }
+  
+  .btn-lol:hover p {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    color: #fff;
+  }
+  
+  /* Animación de brillo */
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+  }
+  
+  /* Cuando el usuario hace hover, aplicamos la animación */
+  .btn-lol:hover .lol-logo {
+    animation: glow 1s infinite alternate;
+  }
+  
