@@ -1,7 +1,7 @@
 {
   "name": "mfe-landing-azlo",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "homepage":"https://stephanoapiolaza.github.io/legends-core",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
