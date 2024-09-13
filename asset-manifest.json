@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/legends-core/static/css/main.bc8f9d7b.css",
-    "main.js": "/legends-core/static/js/main.ea2ba0d1.js",
+    "main.css": "/legends-core/static/css/main.85282e22.css",
+    "main.js": "/legends-core/static/js/main.9b11ad4d.js",
     "static/js/787.437368e3.chunk.js": "/legends-core/static/js/787.437368e3.chunk.js",
     "static/media/moba-map.png": "/legends-core/static/media/moba-map.bb2db7fe8083a9e20797.png",
+    "static/media/login-bg.jpg": "/legends-core/static/media/login-bg.a2f1e2db394d75c332ee.jpg",
     "static/media/players-avatar.png": "/legends-core/static/media/players-avatar.f09d2b41e81f02615366.png",
     "static/media/kratos.png": "/legends-core/static/media/kratos.0b95ada466adbe8d2020.png",
     "static/media/character.png": "/legends-core/static/media/character.24e781f474627be2a3b8.png",
@@ -15,12 +16,12 @@
     "static/media/phantom-assassin.png": "/legends-core/static/media/phantom-assassin.7482dd261fde9f4aab16.png",
     "static/media/profile.png": "/legends-core/static/media/profile.69bb8da9fa25f035b1fb.png",
     "index.html": "/legends-core/index.html",
-    "main.bc8f9d7b.css.map": "/legends-core/static/css/main.bc8f9d7b.css.map",
-    "main.ea2ba0d1.js.map": "/legends-core/static/js/main.ea2ba0d1.js.map",
+    "main.85282e22.css.map": "/legends-core/static/css/main.85282e22.css.map",
+    "main.9b11ad4d.js.map": "/legends-core/static/js/main.9b11ad4d.js.map",
     "787.437368e3.chunk.js.map": "/legends-core/static/js/787.437368e3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc8f9d7b.css",
-    "static/js/main.ea2ba0d1.js"
+    "static/css/main.85282e22.css",
+    "static/js/main.9b11ad4d.js"
   ]
 }
